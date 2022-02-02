@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 public class InventoryTest {
     @Test
     public void constructorTest01(){
-        Inventory inventory = new Inventory(VendingItemsEnum.GRANOLA_BARS,3);
-        String expected = "CHIPS, price= 2 credits. ";
+        Inventory inventory = new Inventory(1, VendingItemsEnum.GRANOLA_BARS,3, 1);
+        String expected = "Item 1 GRANOLA_BARS, price: 3 credits stock: 1";
         String actual = inventory.toString();
 
         Assertions.assertEquals(expected, actual);
@@ -15,7 +15,7 @@ public class InventoryTest {
 
     @Test
     public void getVendingItemsEnumTest(){
-        Inventory inventory = new Inventory(VendingItemsEnum.GRANOLA_BARS,3);
+        Inventory inventory = new Inventory(1, VendingItemsEnum.GRANOLA_BARS,3, 1);
         VendingItemsEnum expected = VendingItemsEnum.GRANOLA_BARS;
         VendingItemsEnum actual = inventory.getName();
 
@@ -24,7 +24,7 @@ public class InventoryTest {
 
     @Test
     public void getPriceTest(){
-        Inventory inventory = new Inventory(VendingItemsEnum.GRANOLA_BARS,3);
+        Inventory inventory = new Inventory(1, VendingItemsEnum.GRANOLA_BARS,3, 1);
         Integer expected = 3;
         Integer actual = inventory.getPrice();
 
@@ -33,11 +33,12 @@ public class InventoryTest {
 
     @Test
     public void getStockTest(){
-        Inventory inventory = new Inventory(VendingItemsEnum.GRANOLA_BARS,3);
-        Integer expected = 0;
-        Integer actual = inventory.getStockChips();
+        Inventory inventory = new Inventory(1, VendingItemsEnum.GRANOLA_BARS,3, 1);
+        Integer expected = 1;
+        Integer actual = inventory.getStock();
 
         Assertions.assertEquals(expected, actual);
     }
+
 
 }
